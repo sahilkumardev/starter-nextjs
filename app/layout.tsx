@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { FontWrapper } from "@/components/font-wrapper";
+import { MaxWidthWrapper } from "@/components/max-with-wrapper";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,7 +31,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <FontWrapper>{children}</FontWrapper>
+        <FontWrapper>
+          <MaxWidthWrapper>
+            {children}
+          </MaxWidthWrapper>
+        </FontWrapper>
       </body>
     </html>
   );
